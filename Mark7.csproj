@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B416A3C-FA48-40DB-9985-AAC167016ADB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mark7</RootNamespace>
+    <AssemblyName>Mark7</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44336</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+    <WebGreaseLibPath>packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App_Data\EmailController.cs" />
+    <Compile Include="App_Data\DownloadHander.cs" />
+    <Compile Include="App_Data\UploadHandler.cs" />
+    <Compile Include="App_Data\Connection.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Admin\FileManagerController.cs" />
+    <Compile Include="Controllers\Admin\SiteInductionController.cs" />
+    <Compile Include="Controllers\backtologin\backtologinController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\email\errorController.cs" />
+    <Compile Include="Controllers\Admin\AdminSettingsController.cs" />
+    <Compile Include="Controllers\Admin\DashboardController.cs" />
+    <Compile Include="Controllers\Admin\UserManagementController.cs" />
+    <Compile Include="Controllers\Admin\CompanyCalendarController.cs" />
+    <Compile Include="Controllers\Admin\companychecklistController.cs" />
+    <Compile Include="Controllers\Admin\DocumentsController.cs" />
+    <Compile Include="Controllers\email\EmailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InductionController.cs" />
+    <Compile Include="Controllers\Login\LoginController.cs" />
+    <Compile Include="Controllers\Project\PAdminController.cs" />
+    <Compile Include="Controllers\Project\PCalendarController.cs" />
+    <Compile Include="Controllers\Admin\DirectoryController.cs" />
+    <Compile Include="Controllers\Project\PChecklistController.cs" />
+    <Compile Include="Controllers\Project\PDrawingsController.cs" />
+    <Compile Include="Controllers\Admin\PermissionController.cs" />
+    <Compile Include="Controllers\Project\PGalleryController.cs" />
+    <Compile Include="Controllers\Project\PJobsController.cs" />
+    <Compile Include="Controllers\Admin\PortfolioController.cs" />
+    <Compile Include="Controllers\Project\PPhotosController.cs" />
+    <Compile Include="Controllers\Admin\ProjectController.cs" />
+    <Compile Include="Controllers\Admin\registerController.cs" />
+    <Compile Include="Controllers\Admin\ReportController.cs" />
+    <Compile Include="Controllers\Project\PsiteinductionController.cs" />
+    <Compile Include="Controllers\Project\PSpecificationController.cs" />
+    <Compile Include="Controllers\Admin\settingController.cs" />
+    <Compile Include="Controllers\TestingController.cs" />
+    <Compile Include="Controllers\Project\PVariationController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlobItems.cs" />
+    <Compile Include="Models\Calendar.cs" />
+    <Compile Include="Models\company_reg.cs" />
+    <Compile Include="Models\Checklist.cs" />
+    <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\Default.cs" />
+    <Compile Include="Models\Directory.cs" />
+    <Compile Include="Models\Drawing.cs" />
+    <Compile Include="Models\GeneralSettings.cs" />
+    <Compile Include="Models\HR.cs" />
+    <Compile Include="Models\job.cs" />
+    <Compile Include="Models\login.cs" />
+    <Compile Include="Models\mail.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Specification.cs" />
+    <Compile Include="Models\UnitMeasure.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\user_permission.cs" />
+    <Compile Include="Models\Variation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AzureBlobService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Controllers\Project\POrderController.cs" />
+    <Compile Include="TokenStorage\SessionTokenStore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".well-known\apple-app-site-association.json" />
+    <Content Include=".well-known\assestlinks.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\assets\css\animate.min.css" />
+    <Content Include="Content\assets\css\app-dark.min.css" />
+    <Content Include="Content\assets\css\app-rtl.min.css" />
+    <Content Include="Content\assets\css\app.min.css" />
+    <Content Include="Content\assets\css\bootstrap.bundle.minv2.js" />
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\bootstrapv2.min.css" />
+    <Content Include="Content\assets\css\icons.min.css" />
+    <Content Include="Content\assets\css\jquery.signature.css" />
+    <Content Include="Content\assets\fonts\boxicons.html" />
+    <Content Include="Content\assets\fonts\boxiconsd41d.svg" />
+    <Content Include="Content\assets\fonts\dripicons-v2.svg" />
+    <Content Include="Content\assets\fonts\fa-brands-400.html" />
+    <Content Include="Content\assets\fonts\fa-brands-400.svg" />
+    <Content Include="Content\assets\fonts\fa-regular-400.html" />
+    <Content Include="Content\assets\fonts\fa-regular-400.svg" />
+    <Content Include="Content\assets\fonts\fa-solid-900.html" />
+    <Content Include="Content\assets\fonts\fa-solid-900.svg" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont7e1c.html" />
+    <Content Include="Content\assets\form\Buildbaseqr.png" />
+    <Content Include="Content\assets\images\brands\bitbucket.png" />
+    <Content Include="Content\assets\images\brands\dribbble.png" />
+    <Content Include="Content\assets\images\brands\dropbox.png" />
+    <Content Include="Content\assets\images\brands\github.png" />
+    <Content Include="Content\assets\images\brands\mail_chimp.png" />
+    <Content Include="Content\assets\images\brands\slack.png" />
+    <Content Include="Content\assets\images\Buildbaseqr.png" />
+    <Content Include="Content\assets\images\companies\img-1.png" />
+    <Content Include="Content\assets\images\companies\img-2.png" />
+    <Content Include="Content\assets\images\companies\img-3.png" />
+    <Content Include="Content\assets\images\companies\img-4.png" />
+    <Content Include="Content\assets\images\companies\img-5.png" />
+    <Content Include="Content\assets\images\companies\img-6.png" />
+    <Content Include="Content\assets\images\error-img.png" />
+    <Content Include="Content\assets\images\favicon.ico" />
+    <Content Include="Content\assets\images\images\brands\bitbucket.png" />
+    <Content Include="Content\assets\images\images\brands\dribbble.png" />
+    <Content Include="Content\assets\images\images\brands\dropbox.png" />
+    <Content Include="Content\assets\images\images\brands\github.png" />
+    <Content Include="Content\assets\images\images\brands\mail_chimp.png" />
+    <Content Include="Content\assets\images\images\brands\slack.png" />
+    <Content Include="Content\assets\images\images\favicon.ico" />
+    <Content Include="Content\assets\images\images\logo-icon.svg" />
+    <Content Include="Content\assets\images\images\logo-light.png" />
+    <Content Include="Content\assets\images\images\logo-light.svg" />
+    <Content Include="Content\assets\images\images\maintenance.png" />
+    <Content Include="Content\assets\images\images\profile-img.png" />
+    <Content Include="Content\assets\images\images\users\avatar-1.jpg" />
+    <Content Include="Content\assets\images\img-4.png" />
+    <Content Include="Content\assets\images\Induction.png" />
+    <Content Include="Content\assets\images\logo-light-old.png" />
+    <Content Include="Content\assets\images\logo-light.png" />
+    <Content Include="Content\assets\images\logo-light.svg" />
+    <Content Include="Content\assets\images\logo.svg" />
+    <Content Include="Content\assets\images\maintenance.png" />
+    <Content Include="Content\assets\images\pdf.png" />
+    <Content Include="Content\assets\images\profile-img.png" />
+    <Content Include="Content\assets\images\users\avatar-1.jpg" />
+    <Content Include="Content\assets\js\app.js" />
+    <Content Include="Content\assets\js\country-state-select.js" />
+    <Content Include="Content\assets\js\edittable\editcell.js" />
+    <Content Include="Content\assets\js\edittable\SimpleTableCellEditor.es6.min.js" />
+    <Content Include="Content\assets\js\form-validation.init.js" />
+    <Content Include="Content\assets\js\jquery-ui.min.js" />
+    <Content Include="Content\assets\js\jquery.signature.js" />
+    <Content Include="Content\assets\js\jquery.signature.min.js" />
+    <Content Include="Content\assets\js\pages\calendar.init.js" />
+    <Content Include="Content\assets\js\pages\calendars.js" />
+    <Content Include="Content\assets\js\pages\coming-soon.init.js" />
+    <Content Include="Content\assets\js\pages\crypto-dashboard.init.js" />
+    <Content Include="Content\assets\js\pages\dashboard-blog.init.js" />
+    <Content Include="Content\assets\js\pages\dashboard.init.js" />
+    <Content Include="Content\assets\js\pages\datatables.init.js" />
+    <Content Include="Content\assets\js\pages\echarts.init.js" />
+    <Content Include="Content\assets\js\pages\file-manager.init.js" />
+    <Content Include="Content\assets\js\pages\form-advanced.init.js" />
+    <Content Include="Content\assets\js\pages\form-editor.init.js" />
+    <Content Include="Content\assets\js\pages\form-element.init.js" />
+    <Content Include="Content\assets\js\pages\saas-dashboard.init.js" />
+    <Content Include="Content\assets\js\pages\schedules.js" />
+    <Content Include="Content\assets\js\pages\sweet-alerts.init.js" />
+    <Content Include="Content\assets\js\pages\table-responsive.init.js" />
+    <Content Include="Content\assets\js\toastee.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-au-mill-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-ca-lcc-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-in-mill-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-uk-mill-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-us-il-chicago-mill-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-us-merc-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Content\assets\libs\admin-resources\rwd-table\rwd-table.min.css" />
+    <Content Include="Content\assets\libs\admin-resources\rwd-table\rwd-table.min.js" />
+    <Content Include="Content\assets\libs\apexcharts\apexcharts.min.js" />
+    <Content Include="Content\assets\libs\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\assets\libs\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\assets\libs\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="Content\assets\libs\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Content\assets\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\libs\bs-custom-file-input\bs-custom-file-input.min.js" />
+    <Content Include="Content\assets\libs\chance\chance.min.js" />
+    <Content Include="Content\assets\libs\chenfengyuan\datepicker.min.css" />
+    <Content Include="Content\assets\libs\chenfengyuan\datepicker.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-bs4\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\assets\libs\datatables.net-bs4\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-buttons-bs4\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\assets\libs\datatables.net-buttons-bs4\js\buttons.bootstrap4.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-buttons\js\buttons.colVis.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-buttons\js\buttons.html5.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-buttons\js\buttons.print.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\assets\libs\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js" />
+    <Content Include="Content\assets\libs\datatables.net-responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Content\assets\libs\datatables.net\js\jquery.dataTables.min.js" />
+    <Content Include="Content\assets\libs\dropzone\min\dropzone.min.css" />
+    <Content Include="Content\assets\libs\dropzone\min\dropzone.min.js" />
+    <Content Include="Content\assets\libs\echarts\echarts.min.js" />
+    <Content Include="Content\assets\libs\jquery-countdown\jquery.countdown.min.js" />
+    <Content Include="Content\assets\libs\jquery\jquery.min.js" />
+    <Content Include="Content\assets\libs\metismenu\metisMenu.min.js" />
+    <Content Include="Content\assets\libs\moment\min\moment.min.js" />
+    <Content Include="Content\assets\libs\node-waves\waves.min.js" />
+    <Content Include="Content\assets\libs\select2\css\select2.min.css" />
+    <Content Include="Content\assets\libs\select2\js\select2.min.js" />
+    <Content Include="Content\assets\libs\simplebar\simplebar.min.js" />
+    <Content Include="Content\assets\libs\summernote\font\summernote.html" />
+    <Content Include="Content\assets\libs\summernote\summernote-bs4.min.css" />
+    <Content Include="Content\assets\libs\summernote\summernote-bs4.min.js" />
+    <Content Include="Content\assets\libs\sweetalert2\sweetalert2.min.css" />
+    <Content Include="Content\assets\libs\sweetalert2\sweetalert2.min.js" />
+    <Content Include="Content\assets\libs\tinymce\tinymce.min.js" />
+    <Content Include="Content\assets\libs\toast\toas.js" />
+    <Content Include="Content\assets\libs\toast\toastr.min.css" />
+    <Content Include="Content\assets\libs\toast\toastr.min.js" />
+    <Content Include="Content\assets\libs\tui-calendar\appp.js" />
+    <Content Include="Content\assets\libs\tui-calendar\default.css" />
+    <Content Include="Content\assets\libs\tui-calendar\tui-calendar.css" />
+    <Content Include="Content\assets\libs\tui-calendar\tui-calendar.js" />
+    <Content Include="Content\assets\libs\tui-calendar\tui-calendar.min.css" />
+    <Content Include="Content\assets\libs\tui-calendar\tui-calendar.min.js" />
+    <Content Include="Content\assets\libs\tui-date-picker\tui-date-picker.min.css" />
+    <Content Include="Content\assets\libs\tui-date-picker\tui-date-picker.min.js" />
+    <Content Include="Content\assets\libs\tui-dom\tui-dom.min.js" />
+    <Content Include="Content\assets\libs\tui-time-picker\tui-time-picker.min.css" />
+    <Content Include="Content\assets\libs\tui-time-picker\tui-time-picker.min.js" />
+    <Content Include="Content\fileassets\css\app.min.css" />
+    <Content Include="Content\fileassets\css\default.css" />
+    <Content Include="Content\fileassets\css\icons.css" />
+    <Content Include="Content\fileassets\css\tui-calendar.css" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-left%402x.png" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-left%403x.png" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-left.png" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-right%402x.png" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-right%403x.png" />
+    <Content Include="Content\fileassets\images\ic-arrow-line-right.png" />
+    <Content Include="Content\fileassets\images\ic-traveltime-w.png" />
+    <Content Include="Content\fileassets\images\ic-view-day%402x.png" />
+    <Content Include="Content\fileassets\images\ic-view-day%403x.png" />
+    <Content Include="Content\fileassets\images\ic-view-day.png" />
+    <Content Include="Content\fileassets\images\ic-view-month%402x.png" />
+    <Content Include="Content\fileassets\images\ic-view-month%403x.png" />
+    <Content Include="Content\fileassets\images\ic-view-month.png" />
+    <Content Include="Content\fileassets\images\ic-view-week%402x.png" />
+    <Content Include="Content\fileassets\images\ic-view-week%403x.png" />
+    <Content Include="Content\fileassets\images\ic-view-week.png" />
+    <Content Include="Content\fileassets\images\icon.png" />
+    <Content Include="Content\fileassets\js\app.js" />
+    <Content Include="Content\fileassets\js\calendars.js" />
+    <Content Include="Content\fileassets\js\default.js" />
+    <Content Include="Content\fileassets\js\schedules.js" />
+    <Content Include="Content\fileassets\js\tui-calendar.js" />
+    <Content Include="Content\fullcalender\app.min.css" />
+    <Content Include="Content\fullcalender\bootstrap.min.css" />
+    <Content Include="Content\fullcalender\bootstrap\main.min.css" />
+    <Content Include="Content\fullcalender\bootstrap\main.min.js" />
+    <Content Include="Content\fullcalender\calendars-full.init.js" />
+    <Content Include="Content\fullcalender\core\main.min.css" />
+    <Content Include="Content\fullcalender\core\main.min.js" />
+    <Content Include="Content\fullcalender\daygrid\main.min.css" />
+    <Content Include="Content\fullcalender\daygrid\main.min.js" />
+    <Content Include="Content\fullcalender\interaction\main.min.js" />
+    <Content Include="Content\fullcalender\timegrid\main.min.css" />
+    <Content Include="Content\fullcalender\timegrid\main.min.js" />
+    <Content Include="EmailTemplates\create-jobs.html" />
+    <Content Include="EmailTemplates\user_email.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\boxicons.html" />
+    <Content Include="fonts\boxiconsd41d.svg" />
+    <Content Include="fonts\dripicons-v2.svg" />
+    <Content Include="fonts\fa-brands-400.html" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.html" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.html" />
+    <Content Include="fonts\fa-solid-900.svg" />
+    <Content Include="fonts\materialdesignicons-webfont7e1c.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\fullcalender\progress.scss" />
+    <Content Include="Content\assets\form\CGU form.pdf" />
+    <Content Include="Content\assets\form\Incident Report.pdf" />
+    <Content Include="Content\assets\js\jquery.signature.js.bak" />
+    <Content Include="Content\assets\js\jquery.signature.min.map" />
+    <Content Include="Content\assets\form\Site induction form.pdf" />
+    <Content Include="fonts\boxicons.eot" />
+    <Content Include="fonts\boxicons.ttf" />
+    <Content Include="fonts\boxicons.woff" />
+    <Content Include="fonts\dripicons-v2.eot" />
+    <Content Include="fonts\dripicons-v2.ttf" />
+    <Content Include="fonts\dripicons-v2.woff" />
+    <Content Include="fonts\dripicons-v2d41d.eot" />
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400d41d.eot" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400d41d.eot" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900d41d.eot" />
+    <Content Include="fonts\materialdesignicons-webfont7e1c.eot" />
+    <Content Include="fonts\materialdesignicons-webfont7e1c.ttf" />
+    <Content Include="fonts\materialdesignicons-webfont7e1c.woff" />
+    <Content Include="fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="Content\assets\fonts\boxicons.eot" />
+    <Content Include="Content\assets\fonts\boxicons.ttf" />
+    <Content Include="Content\assets\fonts\boxicons.woff" />
+    <Content Include="Content\assets\fonts\dripicons-v2.eot" />
+    <Content Include="Content\assets\fonts\dripicons-v2.ttf" />
+    <Content Include="Content\assets\fonts\dripicons-v2.woff" />
+    <Content Include="Content\assets\fonts\dripicons-v2d41d.eot" />
+    <Content Include="Content\assets\fonts\fa-brands-400.eot" />
+    <Content Include="Content\assets\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\assets\fonts\fa-brands-400.woff" />
+    <Content Include="Content\assets\fonts\fa-brands-400d41d.eot" />
+    <Content Include="Content\assets\fonts\fa-regular-400.eot" />
+    <Content Include="Content\assets\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\fonts\fa-regular-400.woff" />
+    <Content Include="Content\assets\fonts\fa-regular-400d41d.eot" />
+    <Content Include="Content\assets\fonts\fa-solid-900.eot" />
+    <Content Include="Content\assets\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\fonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\fonts\fa-solid-900d41d.eot" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont7e1c.eot" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont7e1c.ttf" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont7e1c.woff" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="Content\assets\libs\summernote\font\summernote.eot" />
+    <Content Include="Content\assets\libs\summernote\font\summernote.ttf" />
+    <Content Include="Content\assets\libs\summernote\font\summernote.woff" />
+    <Content Include="Content\assets\libs\summernote\font\summernoted41d.eot" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy3.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy4.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy5.pubxml" />
+    <None Include="Properties\PublishProfiles\buildbase - Web Deploy6.pubxml" />
+    <Content Include="Scripts\Bootstrap\bootstrap.js" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\Bootstrap\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.js" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\Bootstrap\jquery.filedrop.js" />
+    <None Include="Scripts\Bootstrap\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Bootstrap\jquery.min.ajax.js" />
+    <Content Include="Scripts\Bootstrap\jquery.validate.js" />
+    <Content Include="Scripts\Bootstrap\jquery.validate.min.js" />
+    <Content Include="Scripts\Bootstrap\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Bootstrap\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Bootstrap\modernizr-2.8.3.js" />
+    <Content Include="Scripts\company_registration\company_reg.js" />
+    <Content Include="Scripts\DirectoryEdit\Directory_distribution.js" />
+    <Content Include="Scripts\DirectoryEdit\Directory_personEdit.js" />
+    <Content Include="Scripts\Directory\company_fieldset.js" />
+    <Content Include="Scripts\Directory\Directory.js" />
+    <Content Include="Scripts\Directory\directory_form.js" />
+    <Content Include="Scripts\Directory\editCompany.js" />
+    <Content Include="Scripts\Directory\person_fieldset.js" />
+    <Content Include="Scripts\Drawings\drawings_main.js" />
+    <Content Include="Scripts\Jobs\job_main.js" />
+    <Content Include="Scripts\Project\project_main.js" />
+    <Content Include="Scripts\settings\GeneralSettings.js" />
+    <Content Include="Scripts\Specification\ProjectLevelEdit.js" />
+    <Content Include="Scripts\Specification\ProjectLevelInfo.js" />
+    <Content Include="Scripts\Specification\ProjectSpecification.js" />
+    <Content Include="Scripts\user_management\user_management.js" />
+    <Content Include="Scripts\Variations\Variation.js" />
+    <Content Include="Scripts\Variations\variation_main.js" />
+    <Content Include="Scripts\Drawings\Drawing.js" />
+    <Content Include="Scripts\Project\EditProjectCustomFieldSet.js" />
+    <Content Include="Scripts\Jobs\Jobs.js" />
+    <Content Include="Scripts\Jobs\jobsadd.js" />
+    <Content Include="Scripts\Project\ProjectStages.js" />
+    <Content Include="Scripts\Specification\specification_fieldset.js" />
+    <Content Include="Scripts\Specification\specification.js" />
+    <Content Include="Scripts\Drawings\editDrawingsFieldset.js" />
+    <Content Include="Server.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\UserManagement\login.cshtml" />
+    <Content Include="Views\AdminSettings\Index.cshtml" />
+    <Content Include="Views\Shared\_master_layout.cshtml" />
+    <Content Include="Views\AdminSettings\Default.cshtml" />
+    <Content Include="Views\AdminSettings\Directory.cshtml" />
+    <Content Include="Views\AdminSettings\Roles.cshtml" />
+    <Content Include="Views\AdminSettings\ProjectDocument.cshtml" />
+    <Content Include="Views\AdminSettings\CustomFields.cshtml" />
+    <Content Include="Views\AdminSettings\Drawing.cshtml" />
+    <Content Include="Views\AdminSettings\CheckList.cshtml" />
+    <Content Include="Views\AdminSettings\Specification.cshtml" />
+    <Content Include="Views\Testing\testing.cshtml" />
+    <Content Include="Views\Project\ProjectCreation.cshtml" />
+    <Content Include="Views\Permission\Home.cshtml" />
+    <Content Include="Views\Portfolio\Index.cshtml" />
+    <Content Include="Views\AdminSettings\specification_val.cshtml" />
+    <Content Include="Views\AdminSettings\showSpecificationEditPage.cshtml" />
+    <Content Include="Views\PVariation\Home.cshtml" />
+    <Content Include="Views\PVariation\Create.cshtml" />
+    <Content Include="Views\AdminSettings\showCustomEditPage.cshtml" />
+    <Content Include="Views\AdminSettings\editDrawingsFieldset.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_project_layout.cshtml" />
+    <Content Include="Views\Project\CreateProject.cshtml" />
+    <Content Include="Views\Project\Dashboard.cshtml" />
+    <Content Include="Views\PJobs\Home.cshtml" />
+    <Content Include="Views\PJobs\JobDetail.cshtml" />
+    <Content Include="Views\PJobs\JobCreate.cshtml" />
+    <Content Include="Views\PJobs\EditJob.cshtml" />
+    <Content Include="Views\PSpecification\ProjectLevelEdit.cshtml" />
+    <Content Include="Views\PSpecification\ProjectLevelInfo.cshtml" />
+    <Content Include="Views\PSpecification\Home.cshtml" />
+    <Content Include="Views\PDrawings\DrawingsDetails.cshtml" />
+    <Content Include="Views\PDrawings\DrawingsEdit.cshtml" />
+    <Content Include="Views\PDrawings\Home.cshtml" />
+    <Content Include="Views\PVariation\Info.cshtml" />
+    <Content Include="Views\PVariation\Edit.cshtml" />
+    <Content Include="Views\Project\Reports.cshtml" />
+    <Content Include="Views\Project\Settings.cshtml" />
+    <Content Include="Views\Project\Documents.cshtml" />
+    <Content Include="Views\PPhotos\Home.cshtml" />
+    <Content Include="Views\PCalendar\Home.cshtml" />
+    <Content Include="Views\Portfolio\PortfolioGrid.cshtml" />
+    <Content Include="Views\PChecklist\checklist.cshtml" />
+    <Content Include="Views\PChecklist\create.cshtml" />
+    <Content Include="Views\PChecklist\listedit.cshtml" />
+    <Content Include="Views\PChecklist\listview.cshtml" />
+    <Content Include="Views\companychecklist\checklist.cshtml" />
+    <Content Include="Views\companychecklist\create.cshtml" />
+    <Content Include="Views\companychecklist\edit.cshtml" />
+    <Content Include="Views\companychecklist\view.cshtml" />
+    <Content Include="Views\Documents\documents.cshtml" />
+    <Content Include="Views\Shared\_calendar.cshtml" />
+    <Content Include="Views\Shared\company_menu.cshtml" />
+    <Content Include="Views\Shared\project_menu.cshtml" />
+    <Content Include="Views\Shared\_project_calendar.cshtml" />
+    <Content Include="Views\CompanyCalendar\Index.cshtml" />
+    <Content Include="Views\PAdmin\Index.cshtml" />
+    <Content Include="Views\PAdmin\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Shared\_table_focus.cshtml" />
+    <Content Include="Views\Shared\companyfile.cshtml" />
+    <Content Include="Views\AdminSettings\Jobs.cshtml" />
+    <Content Include="Views\AdminSettings\Jobsfiledset.cshtml" />
+    <Content Include="Views\AdminSettings\Variation.cshtml" />
+    <Content Include="Views\AdminSettings\VariationFieldset.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Testing_view.cshtml" />
+    <Content Include="Views\register\Index.cshtml" />
+    <Content Include="Views\Email\index.cshtml" />
+    <Content Include="Views\setting\Index.cshtml" />
+    <Content Include="Views\Shared\sidemenu.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\error\Index.cshtml" />
+    <Content Include="Views\Calendar\Calendar.cshtml" />
+    <Content Include="Views\POrder\Home.cshtml" />
+    <Content Include="Views\POrder\OrderCreate.cshtml" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\Bootstrap\jquery-3.4.1.slim.min.map" />
+    <Content Include="Views\Permission\Create.cshtml" />
+    <Content Include="Views\Permission\Project_template_view.cshtml" />
+    <Content Include="Views\POrder\OrderEdit.cshtml" />
+    <Content Include="Views\POrder\OrderView.cshtml" />
+    <Content Include="Views\email_template.cshtml" />
+    <Content Include="Views\Directory\addcompany.cshtml" />
+    <Content Include="Views\Directory\CompanyFieldsetEdit.cshtml" />
+    <Content Include="Views\Directory\Directory.cshtml" />
+    <Content Include="Views\Directory\distribution.cshtml" />
+    <Content Include="Views\Directory\editCompanyView.cshtml" />
+    <Content Include="Views\Directory\EditDistribution.cshtml" />
+    <Content Include="Views\Directory\editPersonView.cshtml" />
+    <Content Include="Views\Directory\PersonFieldsetEdit.cshtml" />
+    <Content Include="Views\Directory\Useradd.cshtml" />
+    <Content Include="Views\backtologin\Index.cshtml" />
+    <Content Include="Views\CompanyCalendar\EmployeeCalendar.cshtml" />
+    <Content Include="Views\PChecklist\job_create.cshtml" />
+    <Content Include="Views\Shared\_calendar-new.cshtml" />
+    <Content Include="Views\SiteInduction\Index.cshtml" />
+    <Content Include="Views\Psiteinduction\Siteinduction.cshtml" />
+    <Content Include="Views\Induction\Induction.cshtml" />
+    <Content Include="Views\FileManager\Index.cshtml" />
+    <Content Include="Views\PGallery\Home.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Portfolio\openIndex.cshtml" />
+    <Content Include="Views\Portfolio\Inspection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\upload\" />
+    <Folder Include="Upload\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\NewFolder2\" />
+    <Folder Include="Views\Variation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Core, Version=1.36.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Core.1.36.0\lib\net472\Azure.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs, Version=12.19.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Storage.Blobs.12.19.1\lib\netstandard2.0\Azure.Storage.Blobs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Azure.Storage.Common, Version=12.18.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Storage.Common.12.18.1\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="commons-collections4-4.4">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\commons-collections4-4.4.dll</HintPath>
+    </Reference>
+    <Reference Include="commons-math3-3.6.1">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\commons-math3-3.6.1.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.4.2.13, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.1.4.2\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="jsoup-1.13.1">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\jsoup-1.13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Azure.ConfigurationManager.4.0.0\lib\net452\Microsoft.Azure.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Azure.KeyVault.Core.3.0.5\lib\net461\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Sqlite, Version=8.0.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.Sqlite.Core.8.0.8\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.8.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.64.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.4.64.1\lib\net472\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.6.35.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Rest.ClientRuntime.2.3.20\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Rest.ClientRuntime.Azure.3.3.18\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="mpxj-for-csharp">
+      <HintPath>packages11\net.sf.mpxj-for-csharp.9.5.1\lib\mpxj-for-csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MpxjUtilities">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\MpxjUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.Bson.1.0.2\lib\net45\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="poi-4.1.2">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\poi-4.1.2.dll</HintPath>
+    </Reference>
+    <Reference Include="rtfparserkit-1.16.0">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\rtfparserkit-1.16.0.dll</HintPath>
+    </Reference>
+    <Reference Include="sqlite-jdbc-3.30.1">
+      <HintPath>packages11\net.sf.mpxj-common.9.5.1\lib\sqlite-jdbc-3.30.1.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.6.2060, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.core.2.1.6\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.Hashing, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Hashing.6.0.0\lib\net461\System.IO.Hashing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.6.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Web.Optimization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Web.Optimization.0.0.8\lib\net40\Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56868</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44336/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+    <Error Condition="!Exists('packages\net.sf.mpxj-ikvm.9.5.1\build\net.sf.mpxj-ikvm.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\net.sf.mpxj-ikvm.9.5.1\build\net.sf.mpxj-ikvm.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.10.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <Import Project="packages\net.sf.mpxj-ikvm.9.5.1\build\net.sf.mpxj-ikvm.targets" Condition="Exists('packages\net.sf.mpxj-ikvm.9.5.1\build\net.sf.mpxj-ikvm.targets')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
